@@ -2,10 +2,13 @@
   "name": "medApi",
   "version": "1.0.0",
   "description": "API server built by Node.js/Express",
-  "main": "nodemon index.js",
+  "main": "index.js",
   "repository": "https://github.com/skykeeper0/medApi.git",
   "author": "skykeeper0 <trungdinh0429@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "body-parser": "^1.17.1",
     "compression": "^1.6.2",
