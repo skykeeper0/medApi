@@ -9,8 +9,7 @@ Models.Media = require('./media')
 // You only need topics of article, not article associtaed with topic.
 Models.Article.hasMany(Models.Topic);
 
-// Models.Media.belongsTo(Models.Article);
-// You only need media of article, not article associtaed with media
+Models.Media.belongsTo(Models.Article);
 Models.Article.hasMany(Models.Media);
 
 sequelize.sync({

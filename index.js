@@ -22,3 +22,8 @@ app.use(function(req, res, next) {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}...`)
 })
+
+// The Restful API drain.
+app.get('*', (req, res) => {
+  res.status(200).json('{"status":"not found"}');
+});

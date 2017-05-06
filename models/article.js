@@ -1,10 +1,12 @@
 const sequelize = require('../db/connection')
 
 const Article = sequelize.define('article', {
+    uuid: {
+        type: Sequelize.STRING,
+        primaryKey: true
+    },
     id: {
         type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true
     },
     createdAt: {
         type: Sequelize.STRING,
