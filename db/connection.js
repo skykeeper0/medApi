@@ -1,5 +1,7 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('postgres://skykeeper0@localhost:5432/mydb')
+const conf = require('../shared/config')();
+
+const sequelize = new Sequelize(`postgres://${conf.username}@${conf.host}:${conf.port}/${conf.database}`)
 
 // // test database connection
 // sequelize
