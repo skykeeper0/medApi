@@ -12,6 +12,12 @@ Models.Article.hasMany(Models.Topic);
 Models.Media.belongsTo(Models.Article);
 Models.Article.hasMany(Models.Media);
 
+// Article can have many media, each media can only have one article
+
+
+// Article can have many topic and topic can associate with many article
+Models.Article.hasMany(Models.Topic);
+
 sequelize.sync({
     // force:true
 });

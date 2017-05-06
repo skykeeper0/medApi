@@ -90,71 +90,16 @@ module.exports = {
       status: 400,
       type: 'error',
     },
-    1000: { // videoController
-      message: 'Video metadata successfully retrieved',
+    1000: { // articleController
+      message: 'Article  successfully retrieved',
       status: 200,
       type: 'success',
     },
-    1001: { // wishListController
-      message: 'Wish list item was saved successfully',
+    1001: { // topicController
+      message: 'Topic was saved successfully',
       status: 200,
       type: 'success',
-    },
-    1002: { // wishListController
-      message: 'Wish list item successfully retrieved',
-      status: 200,
-      type: 'success',
-    },
-    1003: { // videoController
-      message: 'Video metadata was successfully saved',
-      status: 200,
-      type: 'success',
-    },
-    1004: { // videoController
-      message: 'Video metadata was successfully updated',
-      status: 200,
-      type: 'success',
-    },
-    1005: { // audioClipsController
-      message: 'Audio clip was successfully saved',
-      status: 200,
-      type: 'success',
-    },
-    1006: { // videoController
-      message: 'Videos metadata successfully retrieved',
-      status: 200,
-      type: 'success',
-    },
-    1007: { // videoController
-      message: 'Videos metadata matching you query successfully retrieved',
-      status: 200,
-      type: 'success',
-    },
-    1008: { // wishListController
-      message: 'Wish list successfully retrieved',
-      status: 200,
-      type: 'success',
-    },
-    1009: { // wishListController
-      message: 'The requested video is already in the wish list',
-      status: 200,
-      type: 'success',
-    },
-    1010: { // wishListController
-      message: 'The whis list status was updated successfully',
-      status: 200,
-      type: 'success',
-    },
-    1011: { // authController
-      message: 'The user was successfully created',
-      status: 200,
-      type: 'success',
-    },
-    1012: { // authController
-      message: 'The user was successfully updated',
-      status: 200,
-      type: 'success',
-    },
+    }
   },
 
   getResponseByCode: function(code) {
