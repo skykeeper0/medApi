@@ -2,8 +2,10 @@ const sequelize = require('../db/connection')
 
 const Article = sequelize.define('article', {
     uuid: {
-        type: Sequelize.STRING,
-        primaryKey: true
+      type: Sequelize.UUID,
+      primaryKey: true,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: false
     },
     id: {
         type: Sequelize.INTEGER,
