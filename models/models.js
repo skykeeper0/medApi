@@ -1,5 +1,4 @@
 const { sequelize, Sequelize } = require('../db/connection')
-
 const Topic = require('./topic')
 const Article = require('./article')
 const Media = require('./media')
@@ -9,21 +8,19 @@ const Media = require('./media')
 
 
 const ArticleTopic = sequelize.define('articletopic', {
-    article_id: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+    article_row_id: {
+      type: Sequelize.INTEGER,
       allowNull: false
     },
-    topic_id: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
+    topic_row_id: {
+      type: Sequelize.INTEGER,
       allowNull: false
-    },
+    }
 });
 
 // Article can have many topic and topic can associate with many article
-Article.belongsToMany(Topic, { through: ArticleTopic , foreignKey: 'article_id' });
-Topic.belongsToMany(Article, { through: ArticleTopic , foreignKey: 'topic_id '});
+Article.belongsToMany(Topic, { through: ArticleTopic , foreignKey: 'article_row_id' });
+Topic.belongsToMany(Article, { through: ArticleTopic , foreignKey: 'topic_row_id '});
 
 sequelize.sync({
     force:true
