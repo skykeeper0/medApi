@@ -4,10 +4,12 @@ const Article = require('./article')
 const Media = require('./media')
 
 // Article can have many media, each media can only have one article
-// Models.Article.hasMany(Models.Media);
+Article.hasMany(Media, {foreignKey: 'article_id'});
+// Media.belongsTo(Article, {foreignKey: 'article_id'});
 
 
 const ArticleTopic = sequelize.define('articletopic', {
+
 });
 
 // Article can have many topic and topic can associate with many article

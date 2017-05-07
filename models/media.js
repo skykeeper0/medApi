@@ -1,15 +1,10 @@
 const { sequelize, Sequelize } = require('../db/connection')
 
 const Media = sequelize.define('media', {
-    media_id: {
-      type: Sequelize.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-    },
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        primaryKey: true,
     },
     // type: {
     //     type: Sequelize.STRING,

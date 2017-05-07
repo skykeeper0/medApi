@@ -8,8 +8,9 @@ const Topic = sequelize.define('topic', {
       primaryKey: true,
     },
     id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+      type: Sequelize.INTEGER,
+      allowNull: false,
+    //   unique: true,
     },
     name: {
         type: Sequelize.STRING,
