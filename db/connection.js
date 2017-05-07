@@ -1,7 +1,9 @@
 const Sequelize = require('sequelize');
 const conf = require('../shared/config')();
 
-const sequelize = new Sequelize(`postgres://${conf.username}@${conf.host}:${conf.port}/${conf.database}`)
+// const sequelize = new Sequelize(`postgres://${conf.username}@${conf.host}:${conf.port}/${conf.database}`)
+
+const sequelize = new Sequelize(`postgres://skykeeper0@localhost:5432/mydb`)
 
 // // test database connection
 // sequelize
@@ -13,4 +15,4 @@ const sequelize = new Sequelize(`postgres://${conf.username}@${conf.host}:${conf
 //     console.log('Unable to connect to the database:', err);
 //   });
 
-module.exports = sequelize;
+module.exports = { sequelize, Sequelize };

@@ -1,21 +1,33 @@
-const sequelize = require('../db/connection')
-const Models = {}
+const { sequelize, Sequelize } = require('../db/connection')
 
-Models.Topic = require('./topic')
-Models.Article = require('./article')
-Models.Media = require('./media')
+const Topic = require('./topic')
+const Article = require('./article')
+const Media = require('./media')
 
 // Article can have many media, each media can only have one article
-Models.Article.hasMany(Models.Media);
+// Models.Article.hasMany(Models.Media);
 
+
+const ArticleTopic = sequelize.define('articletopic', {
+    article_id: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: false
+    },
+    topic_id: {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV4,
+      allowNull: false
+    },
+});
 
 // Article can have many topic and topic can associate with many article
-Models.Article.hasMany(Models.Topic, { through: ArticleTopic });
-Models.Topic.hasMany(Models.Article, { through: ArticleTopic });
+Article.belongsToMany(Topic, { through: ArticleTopic , foreignKey: 'article_id' });
+Topic.belongsToMany(Article, { through: ArticleTopic , foreignKey: 'topic_id '});
 
 sequelize.sync({
-    // force:true
+    force:true
 });
 
 
-module.exports = Models
+module.exports = { Topic, Article, Media, ArticleTopic }

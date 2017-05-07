@@ -1,25 +1,26 @@
-const sequelize = require('../db/connection')
+const { sequelize, Sequelize } = require('../db/connection')
 
 const Topic = sequelize.define('topic', {
-    topicId: {
-      type: Sequelize.UUID,
-      primaryKey: true,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false
-    },
+    // topic_id: {
+    //   type: Sequelize.UUID,
+    //   defaultValue: Sequelize.UUIDV4,
+    //   allowNull: false
+    // },
     id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
         primaryKey: true,
-        autoIncrement: true
     },
     name: {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    description: {
-        type: Sequelize.STRING,
-        allowNull: true,
-    },
+    // description: {
+    //     type: Sequelize.STRING,
+    //     allowNull: true,
+    // },
+}, {
+    underscored: true
 });
 
 module.exports = Topic;

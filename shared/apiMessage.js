@@ -99,6 +99,11 @@ module.exports = {
       message: 'Topic was saved successfully',
       status: 200,
       type: 'success',
+    },
+    1002: { // testController
+      message: 'Test was saved successfully',
+      status: 200,
+      type: 'success',
     }
   },
 
