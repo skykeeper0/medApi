@@ -7,7 +7,7 @@
   "author": "skykeeper0 <trungdinh0429@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
