@@ -30,12 +30,12 @@ app.get('/test', testController.injectSeededData)
 // Our server routes.
 // const article = require('./routes/auth');
 const article = require('./routes/article');
-// const videos = require('./routes/topic');
+const topic = require('./routes/topic');
 
 // Middleware for routes.
 // app.use(`/auth`, auth);
 app.use(`/article`, article);
-// app.use(`/topic`, topic);
+app.use(`/topic`, topic);
 
 // The Restful API drain.
 app.get('*', (req, res) => {

@@ -1,7 +1,7 @@
 const express = require('express');
 
 const router = express.Router();
-const articleController = require('../controllers/topicController');
+const topicController = require('../controllers/topicController');
 
 router.get('/', topicController.getAll);
 router.get('/:id', topicController.getOne);
