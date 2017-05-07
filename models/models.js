@@ -8,19 +8,19 @@ const Media = require('./media')
 
 
 const ArticleTopic = sequelize.define('articletopic', {
-    article_row_id: {
-      type: Sequelize.INTEGER,
-      allowNull: false
-    },
-    topic_row_id: {
-      type: Sequelize.INTEGER,
-      allowNull: false
-    }
+    // article_row_id: {
+    //   type: Sequelize.INTEGER,
+    //   allowNull: false
+    // },
+    // topic_row_id: {
+    //   type: Sequelize.INTEGER,
+    //   allowNull: false
+    // }
 });
 
 // Article can have many topic and topic can associate with many article
-Article.belongsToMany(Topic, { through: ArticleTopic , foreignKey: 'article_row_id' });
-Topic.belongsToMany(Article, { through: ArticleTopic , foreignKey: 'topic_row_id '});
+Article.belongsToMany(Topic, { through: ArticleTopic , foreignKey: 'article_row_id', otherKey:'topic_row_id ' });
+Topic.belongsToMany(Article, { through: ArticleTopic , foreignKey: 'topic_row_id ', otherKey: 'article_row_id'});
 
 sequelize.sync({
     force:true

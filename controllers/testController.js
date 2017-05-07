@@ -7,16 +7,18 @@ const testController = {
     Article.create({
       id: 1940,
       title: 'Mid night story',
-      topic: [
-        {id: 535, name: 'stories'},
-        {id: 641, name: 'night'}
-      ],
-      media: [
-        {id : 3, url:'https://love.com'}
-      ]
-    }).then((user) => {
-        const ret = apiMessages.getResponseByCode(1);
-        res.status(ret.status).json(ret);
+      // topic: [
+      //   {id: 535, name: 'stories'},
+      //   {id: 641, name: 'night'}
+      // ]
+    }).then(article => {
+        article.createTopic({
+          id: 535, name: 'stories'
+        }).then(article => {
+          console.log('complete create seed data')
+          const ret = apiMessages.getResponseByCode(1);
+          res.status(ret.status).json(ret);
+        })
     }).catch((err) => {
         console.log('This is an err: ' + err)
         res.status(500).end();
