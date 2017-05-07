@@ -8,14 +8,6 @@ const Media = require('./media')
 
 
 const ArticleTopic = sequelize.define('articletopic', {
-    // article_row_id: {
-    //   type: Sequelize.INTEGER,
-    //   allowNull: false
-    // },
-    // topic_row_id: {
-    //   type: Sequelize.INTEGER,
-    //   allowNull: false
-    // }
 });
 
 // Article can have many topic and topic can associate with many article

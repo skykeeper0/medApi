@@ -12,13 +12,17 @@ const testController = {
       //   {id: 641, name: 'night'}
       // ]
     }).then(article => {
+        const temp_article = article
         article.createTopic({
           id: 535, name: 'stories'
-        }).then(article => {
-          console.log('complete create seed data')
-          const ret = apiMessages.getResponseByCode(1);
-          res.status(ret.status).json(ret);
         })
+        article.createTopic({
+            id: 123, name: 'night'
+        }).then(article => {
+            console.log('complete create seed data')
+            const ret = apiMessages.getResponseByCode(1);
+            res.status(ret.status).json(ret);
+          })
     }).catch((err) => {
         console.log('This is an err: ' + err)
         res.status(500).end();
