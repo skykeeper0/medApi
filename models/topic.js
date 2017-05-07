@@ -1,7 +1,7 @@
 const sequelize = require('../db/connection')
 
 const Topic = sequelize.define('topic', {
-    uuid: {
+    topicId: {
       type: Sequelize.UUID,
       primaryKey: true,
       defaultValue: Sequelize.UUIDV4,
