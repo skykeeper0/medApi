@@ -1,16 +1,16 @@
 const { sequelize, Sequelize } = require('../db/connection')
 
 const Topic = sequelize.define('topic', {
-    topic_id: {
-      type: Sequelize.UUID,
-      defaultValue: Sequelize.UUIDV4,
-      allowNull: false,
-      primaryKey: true,
-    },
+    // topic_id: {
+    //   type: Sequelize.UUID,
+    //   defaultValue: Sequelize.UUIDV4,
+    //   allowNull: false,
+    //   primaryKey: true,
+    // },
     id: {
       type: Sequelize.INTEGER,
       allowNull: false,
-    //   unique: true,
+      primaryKey: true,
     },
     name: {
         type: Sequelize.STRING,

@@ -1,15 +1,16 @@
 const { sequelize, Sequelize } = require('../db/connection')
 
 const Article = sequelize.define('article', {
-    article_id: {
-        type: Sequelize.UUID,
-        primaryKey: true,
-        defaultValue: Sequelize.UUIDV4,
-        allowNull: false
-    },
+    // article_id: {
+    //     type: Sequelize.UUID,
+    //     primaryKey: true,
+    //     defaultValue: Sequelize.UUIDV4,
+    //     allowNull: false
+    // },
     id: {
         type: Sequelize.INTEGER,
         allowNull: false,
+        primaryKey: true,
     },
     // createdAt: {
     //     type: Sequelize.STRING,

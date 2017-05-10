@@ -11,7 +11,7 @@ const testController = {
         media: [
           {
             id: 5,
-            url: 'asd'
+            url: 'asdsad'
           }
         ],
         topics: [
@@ -56,5 +56,6 @@ const testController = {
     })
   }
 }
+
 
 module.exports = testController;
