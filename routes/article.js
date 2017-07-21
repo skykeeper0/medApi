@@ -5,7 +5,6 @@ const articleController = require('../controllers/articleController');
 
 router.get('/', articleController.getAll);
 router.get('/:id', articleController.getOne);
-router.post('/', articleController.addOne);
 // router.put('/:id', videosController.updateOne);
 
 module.exports = router;

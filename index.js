@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
-const testController = require('./controllers/testController')
 
 app.use(bodyParser.json());
 
@@ -23,9 +22,6 @@ app.use(function(req, res, next) {
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}...`)
 })
-
-// routes
-app.get('/test', testController.injectSeededData)
 
 // Our server routes.
 // const article = require('./routes/auth');

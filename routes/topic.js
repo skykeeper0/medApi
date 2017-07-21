@@ -4,7 +4,7 @@ const router = express.Router();
 const topicController = require('../controllers/topicController');
 
 router.get('/', topicController.getAll);
-router.get('/:id', topicController.getOne);
+// router.get('/:id', topicController.getOne);
 // router.post('/', videosController.addOne);
 // router.put('/:id', videosController.updateOne);
 

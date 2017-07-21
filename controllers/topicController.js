@@ -1,29 +1,23 @@
 // Application modules.
 const apiMessages = require('../shared/apiMessage');
-const { Topic } = require('./../models/models');
+const { connection } = require('../db/connection');
+var topics;
+var db;
+
+connection.then( obj => {
+  topics = obj.topics;
+  db = obj.db;
+})
 
 // The controller itself.
 const topicController = {
   getAll: (req, res) => {
-    Topic.findAll({})
-      .then(users => {
-        const ret = apiMessages.getResponseByCode(1000);
-        ret.data = users
-        res.status(ret.status).json(ret);
-      })
-  },
-
-  getOne: (req, res) => {
-    Topic.findOne({
-      where: {
-        id: req.params.id
-      }
-    }).then(users => {
-        const ret = apiMessages.getResponseByCode(1000);
-        ret.data = users
-        res.status(ret.status).json(ret);
+    topics.find().toArray( (err, data) => {
+      const ret = apiMessages.getResponseByCode(1000);
+      ret.data = data
+      res.status(ret.status).json(ret);
     })
-  }
+  },
 };
 
 module.exports = topicController;

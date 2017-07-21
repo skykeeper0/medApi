@@ -1,18 +1,31 @@
-const Sequelize = require('sequelize');
+// const mongoose = require('mongoose')
+// const conf = require('../shared/config')();
+// // const sequelize = new Sequelize(`postgres://${conf.username}@${conf.host}:${conf.port}/${conf.database}`)
+// var db;
+// const url = `mongodb://@localhost:27017/med`;
+// mongoose.connect(url, (err, database) => {
+//   db = database;
+// })
+// var connection = mongoose.connection;
+// connection.on('error', console.error.bind(console, 'connection error:'));
+// connection.once('open', function() {
+//   console.log('database connected')
+// });
+
+const MongoClient = require('mongodb').MongoClient;
+const Server = require('mongodb').Server;
 const conf = require('../shared/config')();
+const url = 'mongodb://localhost:27017/med';
 
-// const sequelize = new Sequelize(`postgres://${conf.username}@${conf.host}:${conf.port}/${conf.database}`)
+var connection = new Promise(function(resolve, reject) {
+  //open connection to the server
+  MongoClient.connect(url, (err, db) => {
+    if (err) reject(Error(err));
 
-const sequelize = new Sequelize(`postgres://skykeeper0@localhost:5432/mydb`)
+    articles = db.collection("articles");
+    topics = db.collection("topics");
+    resolve({ articles, topics, db });
+  })
+});
 
-// // test database connection
-// sequelize
-//   .authenticate()
-//   .then(function(err) {
-//     console.log('Connection has been established successfully.');
-//   })
-//   .catch(function (err) {
-//     console.log('Unable to connect to the database:', err);
-//   });
-
-module.exports = { sequelize, Sequelize };
+module.exports = { connection };
