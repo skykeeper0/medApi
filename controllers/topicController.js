@@ -2,11 +2,9 @@
 const apiMessages = require('../shared/apiMessage');
 const { connection } = require('../db/connection');
 var topics;
-var db;
 
 connection.then( obj => {
   topics = obj.topics;
-  db = obj.db;
 })
 
 // The controller itself.

@@ -24,7 +24,7 @@ var connection = new Promise(function(resolve, reject) {
 
     articles = db.collection("articles");
     topics = db.collection("topics");
-    resolve({ articles, topics, db });
+    resolve({ articles, topics });
   })
 });
 
